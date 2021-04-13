@@ -32,7 +32,7 @@ def convert(message: telebot.types.Message):
             <в какую валюту перевести> \
             <количество переводимой валюты>\nУвидеть список всех доступных валют:/values')
         quote, base, amount = values
-        total_base = CryptoConverter.convert(quote, base, amount)
+        total_base = CryptoConverter.get_price(quote, base, amount)
     except APIException as e:
         bot.reply_to(message, f'Ошибка пользователя.\n{e}')
     except Exception as e:
